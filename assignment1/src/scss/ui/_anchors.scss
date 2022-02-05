@@ -1,0 +1,48 @@
+@use './../variants/colors';
+
+%anchor{
+    padding: 0.5rem 2rem;
+    border:none;
+    border-radius: 3px;
+    box-shadow: 0 0 3px 0 colors.$slate-400;
+    outline:none;
+}
+
+a, a:link, a:visited, a:hover, a:active{
+ 
+    text-align: center;
+}
+
+ 
+
+.read{
+    @extend %anchor;
+    display:inline-block;
+    color: colors.$rose-500;
+    box-shadow: 0 0 3px 0 colors.$rose-500;
+}
+ 
+
+
+
+.write{
+    @extend %anchor;
+    display:inline-block;
+    color:colors.$purple-600 ;
+    box-shadow: 0 0 3px 0 colors.$purple-600 ;
+ 
+}
+
+.update{
+    @extend %anchor;
+    display:inline-block;
+    color: colors.$green-600;
+    box-shadow: 0 0 3px 0 colors.$green-600;
+}
+
+.delete{
+    @extend %anchor;
+    display:inline-block;
+    color: colors.$orange-500;
+    box-shadow: 0 0 3px 0 colors.$orange-500;
+}

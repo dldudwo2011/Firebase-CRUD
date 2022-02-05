@@ -1,0 +1,62 @@
+
+@use './variants/colors' as *;
+.content-page-app-bar{
+    padding:1rem;
+    display:flex;
+    justify-content: space-between;
+    box-shadow: 0 0 5px 0  $grey-400;
+    background-color: white;
+    div{
+        gap:0.25rem;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width:28px;
+        }
+        h2{
+           width:max-content;
+        }
+    }
+}
+
+.crudy{
+    padding: 0.5rem;
+    margin:1rem auto 0;
+    max-width: 420px;
+    header{
+        margin-bottom: 1rem;
+    }
+    h2{
+        text-align: center;
+        font-size:1.75rem;
+        font-weight: 600;
+        color: $red-600;
+    }
+}
+
+.crud-control{
+    display:flex;
+    gap:0.35rem;
+    
+    button{
+        text-align: center;
+        padding: 0 0.5rem;
+        margin:0;
+        background-color: $zinc-100;
+         
+    }
+    
+}
+
+ 
+
+ 
+ 
+
+
+
+
+ 
+
+ 

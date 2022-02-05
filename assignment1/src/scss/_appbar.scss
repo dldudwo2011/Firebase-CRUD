@@ -1,0 +1,55 @@
+@use './variants/colors' as *;
+.app-bar{
+    padding:1rem;
+   
+    ul{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.logo-icon{
+    width:32px;
+}
+
+.brand-icon{
+    text-align: center;
+    width:192px;
+    font-size:0.85rem;
+    p{
+        padding-left: 0.5rem;
+        margin-bottom:0.25rem;
+    }
+}
+.mobile-menu-icon{
+    width:20px;
+}
+
+.site-links{
+    display:flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.content-page-app-bar{
+    padding:1rem;
+    display:flex;
+    justify-content: space-between;
+    box-shadow: 0 0 5px 0  $grey-400;
+    background-color: white;
+    div{
+        gap:0.25rem;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width:28px;
+        }
+        h2{
+           width:max-content;
+        }
+    }
+}
+ 
+

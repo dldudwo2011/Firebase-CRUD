@@ -1,0 +1,34 @@
+@use './variants/colors' as *;
+
+.modal{
+    position: fixed;
+    top:0;
+    left:0;
+    background-color: rgba(173, 173, 173, 0.661);
+    width: 100%;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    display:none;
+}
+
+.modal-close-button{
+    text-align: right;
+}
+.editor{
+   
+    border-radius: 2px;
+    background-color: white;
+    label{
+        font-size: 1.75rem;
+    }
+    button{
+        width: 100%;
+        margin:0.5rem 0;
+    }
+    div{
+        margin-bottom: 2rem;
+    }
+}
+ 
