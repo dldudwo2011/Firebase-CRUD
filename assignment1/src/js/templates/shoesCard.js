@@ -20,12 +20,11 @@ function shoesCard({
 }) {
   let template;
 
-  if (status) {
-    template = `
+  template = `
         <div class="card mx-3 my-3" style="width: 18rem;">
         <img class="card-img-top" src="${image}" alt="foot-ball">
         <div class="card-body">
-            <p class="card-text text-info">${status}<p>
+            ${status ? `<p class="card-text text-info">${status}<p>` : ""}
             <h5 class="card-title">${title}</h5>
         </div>
         <ul class="list-group list-group-flush">
@@ -39,25 +38,6 @@ function shoesCard({
         </div>
         </div>
   `;
-  } else {
-    template = `
-        <div class="card mx-3 my-3" style="width: 18rem;">
-        <img class="card-img-top" src="${image}" alt="foot-ball">
-        <div class="card-body">
-            <h5 class="card-title">${title}</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">${type}</li>
-            <li class="list-group-item">${numberOfColours} Colour</li>
-            <li class="list-group-item">$${price}</li>
-        </ul>
-        <div class="card-body d-flex justify-content-evenly">
-            <button class="btn btn-primary" id="edit" data-key="${key}" >edit</button>
-            <button class="btn btn btn-danger" id="delete" data-key="${key}" >delete</button>
-        </div>
-        </div>
-  `;
-  }
 
   const element = document.createRange().createContextualFragment(template)
     .children[0];

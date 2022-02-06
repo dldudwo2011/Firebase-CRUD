@@ -51,8 +51,29 @@ async function updateNewShoe() {
 
   if (statusInput.checked) status = statusInput.value;
 
+  const obj = {
+    title,
+    type,
+    numberOfColours: +numberOfColours,
+    price: +price,
+  };
+
+  const asArray = Object.entries(obj);
+
+  //only accept values that are not null to update
+  const filteredArr = asArray.filter((val) => val[1] != "");
+
+  //converts back to object
+  const convertedObj = Object.fromEntries(filteredArr);
+
+  //adding status to the object
+  convertedObj.status = status;
+
+  // convertedObj.status = status;
+
   const shoeRef = dataRef(db, `assignment1/${key}`);
-  // paths to the data to write
+
+  // if it has file to update
   if (file != null) {
     const imageRef = await storageRef(storage, `images/${file.name}`);
     // uploading file to the storage bucket
@@ -63,23 +84,16 @@ async function updateNewShoe() {
     const storagePath = uploadResult.metadata.fullPath;
 
     update(shoeRef, {
-      // urlPath,
+      ...convertedObj,
       image: urlPath,
-      title,
       storagePath,
-      type,
-      price,
-      numberOfColours,
-      status,
     });
-  } else {
+  }
+
+  //if it doesnt have file to update
+  else {
     update(shoeRef, {
-      // urlPath,
-      title,
-      type,
-      price,
-      numberOfColours,
-      status,
+      ...convertedObj,
     });
   }
 
