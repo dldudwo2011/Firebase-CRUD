@@ -10,8 +10,8 @@
     "start": "npm run static && npm run startparcel",
     "build": "npm run static &&  npm run buildparcel",
     "static2": "cp -rf ./src/static  dist",
-    "start2": "npm run static2 && npm run startparcel",
-    "build2": "npm run static2 &&  npm run buildparcel"
+    "start2": "npm run startparcel && npm run static2",
+    "build2": "npm run buildparcel && npm run static2"
   },
   "keywords": [],
   "author": "YoungjaeLee",
