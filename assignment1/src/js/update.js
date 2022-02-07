@@ -45,8 +45,8 @@ async function updateNewShoe() {
   const title = titleInput.value.trim();
   const file = imageInput.files[0];
   const type = typeInput.value.trim();
-  const numberOfColours = numberOfColoursInput.value;
-  const price = priceInput.value;
+  const numberOfColours = parseInt(numberOfColoursInput.value);
+  const price = parseInt(priceInput.value);
   let status = "";
 
   if (statusInput.checked) status = statusInput.value;
@@ -54,8 +54,8 @@ async function updateNewShoe() {
   const obj = {
     title,
     type,
-    numberOfColours: +numberOfColours,
-    price: +price,
+    numberOfColours,
+    price,
   };
 
   const asArray = Object.entries(obj);

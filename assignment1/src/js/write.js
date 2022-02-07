@@ -66,8 +66,8 @@ async function uploadNewShoe() {
   const title = titleInput.value.trim();
   const file = fileInput.files[0];
   const type = typeInput.value.trim();
-  const numberOfColours = numberOfColoursInput.value;
-  const price = priceInput.value;
+  const numberOfColours = parseInt(numberOfColoursInput.value);
+  const price = parseInt(priceInput.value);
 
   let status = "";
 
@@ -131,8 +131,8 @@ async function uploadNewShoe() {
       title,
       image: urlPath,
       type,
-      price: +price,
-      numberOfColours: +numberOfColours,
+      price,
+      numberOfColours,
       status,
     });
   }
