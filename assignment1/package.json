@@ -5,11 +5,10 @@
   "scripts": {
     "clean": "rd /s /q .parcel-cache dist",
     "static": "Xcopy \"src/static\" \"dist/static\" /s /i",
-    "init": "npm run clean && npm run static",
     "startparcel": "parcel src/index.html",
     "buildparcel": "parcel build src/index.html",
-    "start": "npm run init && npm run startparcel",
-    "build": "npm run init &&  npm run buildparcel"
+    "start": "npm run static && npm run startparcel",
+    "build": "npm run static &&  npm run buildparcel"
   },
   "keywords": [],
   "author": "YoungjaeLee",
