@@ -39,6 +39,14 @@ function onKeydown(e) {
   e.currentTarget.removeEventListener("keydown", onKeydown);
 }
 
+function onChange(e) {
+  const errorContainer = e.currentTarget.parentNode.firstElementChild;
+  if (!errorContainer.classList.contains("d-none")) {
+    errorContainer.classList.add("d-none");
+  }
+  e.currentTarget.removeEventListener("change", onChange);
+}
+
 function onCancel(e) {
   e.preventDefault();
   const userResponse = confirm(
@@ -82,7 +90,7 @@ async function uploadNewShoe() {
     if (!file) {
       errorContainer2.textContent = "Image is required";
       errorContainer2.classList.remove("d-none");
-      fileInput.addEventListener("keydown", onKeydown);
+      fileInput.addEventListener("change", onChange);
     }
 
     if (!type) {
@@ -135,5 +143,7 @@ async function uploadNewShoe() {
       numberOfColours,
       status,
     });
+
+    alert("Successfully added.");
   }
 }

@@ -11,7 +11,7 @@ const firebaseConfig = {
   authDomain: process.env.STOREFRONT_FIREBASE_AUTH_DOMAIN,
   databaseURL: "https://dmit2008-ed68c-default-rtdb.firebaseio.com",
   projectId: process.env.STOREFRONT_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.STOREFRONT_FIREBASE_STORAGE_BUCKET,
+  storageBucket: "dmit2008-ed68c.appspot.com",
   messagingSenderId: process.env.STOREFRONT_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.STOREFRONT_FIREBASE_APP_ID,
 };

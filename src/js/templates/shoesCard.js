@@ -2,6 +2,7 @@ import {
   ref as storageRef,
   uploadBytes,
   getDownloadURL,
+  deleteObject,
   ref,
 } from "firebase/storage";
 import { ref as dataRef, push, set, get, remove } from "firebase/database";
@@ -23,7 +24,7 @@ function shoesCard({
   template = `
         <div class="card mx-3 my-3" style="width: 18rem;">
         <img class="card-img-top" src="${image}" alt="foot-ball">
-        <div class="card-body">
+        <div class="card-body top">
             ${status ? `<p class="card-text text-info">${status}<p>` : ""}
             <h5 class="card-title">${title}</h5>
         </div>
@@ -32,7 +33,7 @@ function shoesCard({
             <li class="list-group-item">${numberOfColours} Colour</li>
             <li class="list-group-item">$${price}</li>
         </ul>
-        <div class="card-body d-flex justify-content-evenly">
+        <div class="card-body d-flex justify-content-evenly buttons">
             <button class="btn btn-primary" id="edit" data-key="${key}" >edit</button>
             <button class="btn btn btn-danger" id="delete" data-key="${key}" >delete</button>
         </div>
@@ -67,12 +68,12 @@ async function onRemoveShoe(e) {
 
   if (userResponse) {
     const shoeRef = await dataRef(db, `assignment1/${key}`);
+    const shoeSnapShot = await get(shoeRef);
+    const data = shoeSnapShot.val();
 
-    remove(shoeRef);
-
-    if (shoeRef.storageRef) {
-      const imageRef = await storageRef(shoeRef.storageRef);
-      remove(imageRef);
+    if (data.storagePath) {
+      const imageRef = await storageRef(storage, data.storagePath);
+      deleteObject(imageRef);
     } else if (shoeRef.image) {
       try {
         fs.unlinkSync(shoeRef.image);
@@ -82,6 +83,7 @@ async function onRemoveShoe(e) {
       }
     }
 
+    remove(shoeRef);
     alert("Delete success.");
     window.location.reload();
   }

@@ -34,6 +34,15 @@
         opacity: 0.5;
         transition: opacity 0.4s;
       }
+      img {
+        min-height: 17.875rem;
+      }
+      button {
+        height: 2.5rem;
+      }
+      .top {
+        min-height: 9.5rem;
+      }
     </style>
     <script type="module" src="./js/read.js" defer></script>
   </head>
@@ -82,7 +91,7 @@
           >Add product</a
         >
         <div class="d-flex justify-content-center">
-          <div id="shoe-cards" class="d-flex"></div>
+          <div id="shoe-cards" class="d-flex flex-wrap"></div>
         </div>
       </div>
     </main>

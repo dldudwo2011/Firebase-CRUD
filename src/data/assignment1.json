@@ -1,0 +1,48 @@
+{
+  "assignment1": {
+    "-MtmsoSQ8VxmAT1U7qX3": {
+      "key": "-MtmsoSQ8VxmAT1U7qX3",
+      "id": "7d36209e-307e-4885-abc1-604ca53b445a",
+      "sku": "soccer--MtmsoSQ8VxmAT1U7qX3",
+      "image": "static/images/mercurial-superfly-8-elite-fg-football-boots-jZbl4T(1).jpg",
+      "title": "Nike Mercurial Superfly 8 Elite FG",
+      "price": 365,
+      "status": "Just In",
+      "type": "Firm-Ground Footbal Boot",
+      "numberOfColours": 1
+    },
+    "-MtmsoSSII8tLeLPC7Jp": {
+      "key": "-MtmsoSSII8tLeLPC7Jp",
+      "id": "8c69f796-2601-4f8a-8aca-28e955bc68f8",
+      "sku": "soccer--MtmsoSSII8tLeLPC7Jp",
+      "image": "static/images/mercurial-vapor-14-elite-fg-football-boots-gSCd8q(2).jpg",
+      "title": "Nike Mercurial Vapor 14 Elite FG",
+      "price": 330,
+      "status": "Just In",
+      "type": "Firm-Ground Footbal Boot",
+      "numberOfColours": 1
+    },
+    "-MtmsoSUULS-DbJy2cx0": {
+      "key": "-MtmsoSUULS-DbJy2cx0",
+      "id": "8c1e371e-728a-468f-8d40-eab6391e497a",
+      "sku": "soccer--MtmsoSUULS-DbJy2cx0",
+      "image": "static/images/mercurial-vapor-14-elite-sg-pro-anti-clog-traction-football-boots-WCZ2Sz(4).jpg",
+      "title": "Nike Mercurial Vapor 14 Elite SG-PRO Anti-Clog Traction",
+      "price": 340,
+      "status": "Just In",
+      "type": "Soft-Ground Football Boots",
+      "numberOfColours": 1
+    },
+    "-MtmsoSW4vJcRpQUY7GW": {
+      "key": "-MtmsoSW4vJcRpQUY7GW",
+      "id": "bbb0c9ef-28fb-4bf6-856a-c0503ba64cbe",
+      "sku": "soccer--MtmsoSW4vJcRpQUY7GW",
+      "image": "static/images/mercurial-vapor-14-elite-ag-artificial-ground-football-boots-nrsh5s.jpg",
+      "title": "Nike Mercurial Vapor 14 Elite AG",
+      "price": 330,
+      "status": "Just In",
+      "type": "Artificial-Ground Football Boot",
+      "numberOfColours": 1
+    }
+  }
+}
