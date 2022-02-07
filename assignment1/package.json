@@ -4,11 +4,14 @@
   "description": "### Initialize Project Folder to Use NPM  - on the command line run the following command. ```npm    npm init ```",
   "scripts": {
     "clean": "rd /s /q .parcel-cache dist",
-    "static": "Xcopy \"src/static\" \"dist/static\" /s /i",
+    "static1": "Xcopy \"src/static\" \"dist/static\" /s /i",
     "startparcel": "parcel src/index.html",
     "buildparcel": "parcel build src/index.html",
     "start": "npm run static && npm run startparcel",
-    "build": "npm run static &&  npm run buildparcel"
+    "build": "npm run static &&  npm run buildparcel",
+    "static2": "cp -rf ./src/static  dist",
+    "start2": "npm run static2 && npm run startparcel",
+    "build2": "npm run static2 &&  npm run buildparcel"
   },
   "keywords": [],
   "author": "YoungjaeLee",
