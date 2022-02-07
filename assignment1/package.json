@@ -4,7 +4,7 @@
   "description": "### Initialize Project Folder to Use NPM  - on the command line run the following command. ```npm    npm init ```",
   "scripts": {
     "clean": "rd /s /q .parcel-cache dist",
-    "clean-netflify": "rm -rf node_modules .git .parcel-cache dist .DS_Store",
+    "clean-netflify": "rm -rf .git .parcel-cache dist .DS_Store",
     "static": "Xcopy \"src/static\" \"dist/static\" /s /i",
     "startparcel": "parcel src/index.html",
     "buildparcel": "parcel build src/index.html",
@@ -15,7 +15,7 @@
     "startparcel-netflify": "npm run startparcel && npm run static-netflify",
     "buildparcel-netflify": "npm run buildparcel && npm run static-netflify",
     "start-netflify": "npm run clean-netflify && npm run startparcel-netflify",
-    "build-netflify": "npm run clean-netflify && npm run buildparcel"
+    "build-netflify": "npm run clean-netflify && npm run buildparcel-netflify"
   },
   "keywords": [],
   "author": "YoungjaeLee",
