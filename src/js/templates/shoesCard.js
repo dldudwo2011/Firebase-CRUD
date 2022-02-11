@@ -72,7 +72,7 @@ async function onRemoveShoe(e) {
     const data = shoeSnapShot.val();
 
     if (data.storagePath) {
-      const imageRef = await storageRef(storage, data.storagePath);
+      const imageRef = storageRef(storage, data.storagePath);
       deleteObject(imageRef);
     } else if (shoeRef.image) {
       try {

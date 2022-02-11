@@ -55,7 +55,7 @@
               />
             </svg>
           </a>
-          <div
+          <!-- <div
             class="collapse navbar-collapse justify-content-lg-end"
             id="navbarSupportedContent"
           >
@@ -67,84 +67,170 @@
                 <a class="nav-link" href="update.html">Update product</a>
               </li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </nav>
     </header>
     <main>
-      <div class="container">
-        <h1 class="font-weight-bold text-center my-3">Update Product</h1>
-        <form id="shoesForm" class="col-lg-4 m-lg-auto">
-          <div>
-            <div class="display">
-              <img
-                src="static/images/default.png"
-                class="w-100 mb-3"
-                alt="shoe-image"
+      <div class="d-flex vw-100 h-100">
+        <div
+          class="flex-column flex-shrink-0 p-3 bg-light"
+          style="width: 280px"
+        >
+          <ul
+            class="nav nav-pills flex-column mb-auto position-fixed"
+            style="width: 248px"
+          >
+            <li class="nav-item">
+              <a href="index.html" class="nav-link" aria-current="page">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-eye"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"
+                  />
+                  <path
+                    d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                  />
+                </svg>
+                View product
+              </a>
+            </li>
+            <li>
+              <a href="write.html" class="nav-link link-dark">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-plus"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                  />
+                </svg>
+                Add product
+              </a>
+            </li>
+            <li>
+              <a href="update.html" class="nav-link link-dark active">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-arrow-clockwise"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
+                  />
+                  <path
+                    d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"
+                  />
+                </svg>
+                Update product
+              </a>
+            </li>
+          </ul>
+          <!-- <hr>
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+          <strong>mdo</strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+          <li><a class="dropdown-item" href="#">New project...</a></li>
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+      </div> -->
+        </div>
+        <div class="container">
+          <h1 class="font-weight-bold text-center my-3">Update Product</h1>
+          <form id="shoesForm" class="col-lg-4 m-lg-auto">
+            <div>
+              <div class="display">
+                <img
+                  src="static/images/default.png"
+                  class="w-100 mb-3"
+                  alt="shoe-image"
+                />
+              </div>
+              <div class="form-group">
+                <label for="shoeImage" class="d-block text-start mb-1"
+                  >Select image</label
+                >
+                <input
+                  type="file"
+                  class="form-control-file mb-2"
+                  id="shoeImage"
+                  accept=".jpg, .png, .jpeg, .webp .jfif"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="title" class="d-block text-start mb-1">Title</label>
+              <input
+                type="text"
+                class="form-control w-100 mb-2"
+                id="title"
+                aria-describedby="emailHelp"
+                placeholder="Enter title"
               />
             </div>
             <div class="form-group">
-              <label for="shoeImage" class="d-block text-start mb-1"
-                >Select image</label
-              >
+              <label for="type" class="d-block text-start mb-1">Type</label>
               <input
-                type="file"
-                class="form-control-file mb-2"
-                id="shoeImage"
-                accept=".jpg, .png, .jpeg, .webp .jfif"
+                type="text"
+                class="form-control w-100 mb-2"
+                id="type"
+                placeholder="Enter type"
               />
             </div>
-          </div>
-          <div class="form-group">
-            <label for="title" class="d-block text-start mb-1">Title</label>
-            <input
-              type="text"
-              class="form-control w-100 mb-2"
-              id="title"
-              aria-describedby="emailHelp"
-              placeholder="Enter title"
-            />
-          </div>
-          <div class="form-group">
-            <label for="type" class="d-block text-start mb-1">Type</label>
-            <input
-              type="text"
-              class="form-control w-100 mb-2"
-              id="type"
-              placeholder="Enter type"
-            />
-          </div>
-          <div class="form-group">
-            <label for="colour-count" class="d-block text-start mb-1"
-              >Number of colours</label
-            >
-            <input
-              type="number"
-              class="form-control w-25 mb-2"
-              id="colour-count"
-            />
-          </div>
-          <div class="form-group">
-            <label for="price" class="d-block text-start mb-1">Price</label>
-            <input type="number" class="form-control w-25 mb-2" id="price" />
-          </div>
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="just-in"
-              value="Just In"
-            />
-            <label class="form-check-label mb-2" for="just-in">Just in</label>
-          </div>
-
-          <div class="d-flex justify-content-center">
-            <div>
-              <button type="submit" class="btn btn-primary me-4">Update</button>
-              <button id="cancel" class="btn btn btn-danger">Cancel</button>
+            <div class="form-group">
+              <label for="colour-count" class="d-block text-start mb-1"
+                >Number of colours</label
+              >
+              <input
+                type="number"
+                class="form-control w-25 mb-2"
+                id="colour-count"
+              />
             </div>
-          </div>
-        </form>
+            <div class="form-group">
+              <label for="price" class="d-block text-start mb-1">Price</label>
+              <input type="number" class="form-control w-25 mb-2" id="price" />
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="just-in"
+                value="Just In"
+              />
+              <label class="form-check-label mb-2" for="just-in">Just in</label>
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <div>
+                <button type="submit" class="btn btn-primary me-4">
+                  Update
+                </button>
+                <button id="cancel" class="btn btn btn-danger">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </main>
   </body>
