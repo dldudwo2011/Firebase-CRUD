@@ -1,11 +1,11 @@
-import { ref as dataRef, get, set, update } from "firebase/database";
+import { ref as dataRef, get } from "firebase/database";
 import { db } from "./libs/firebase/firebaseConfig";
 import { shoesCard } from "./templates/shoesCard";
 
 const cardContainer = document.querySelector("#shoe-cards");
 
 async function pageInit() {
-  const shoeRef = await dataRef(db, "assignment1/");
+  const shoeRef = await dataRef(db, "products/");
   const shoeSnapShot = await get(shoeRef);
   const data = shoeSnapShot.val();
 
