@@ -5,7 +5,7 @@ import { shoesCard } from "./templates/shoesCard";
 const cardContainer = document.querySelector("#shoe-cards");
 
 async function pageInit() {
-  const shoeRef = dataRef(db, "assignment1/");
+  const shoeRef = await dataRef(db, "assignment1/");
   const shoeSnapShot = await get(shoeRef);
   const data = shoeSnapShot.val();
 
