@@ -118,8 +118,8 @@ async function uploadNewShoe() {
 
   if (title && file && type && numberOfColours && price) {
     // paths to the data to write
-    const imageRef = await storageRef(storage, `images/${file.name}`);
-    const dataRef = await databaseRef(db, "assignment1");
+    const imageRef = await storageRef(storage, `images/products/${file.name}`);
+    const dataRef = await databaseRef(db, "products");
 
     // uploading file to the storage bucket
     const uploadResult = await uploadBytes(imageRef, file);

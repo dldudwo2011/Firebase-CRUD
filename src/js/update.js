@@ -71,11 +71,11 @@ async function updateNewShoe() {
 
   // convertedObj.status = status;
 
-  const shoeRef = dataRef(db, `assignment1/${key}`);
+  const shoeRef = dataRef(db, `products/${key}`);
 
   // if it has file to update
   if (file != null) {
-    const imageRef = await storageRef(storage, `images/${file.name}`);
+    const imageRef = await storageRef(storage, `images/products/${file.name}`);
     // uploading file to the storage bucket
     const uploadResult = await uploadBytes(imageRef, file);
     // url to the image stored in storage bucket
@@ -103,7 +103,7 @@ async function updateNewShoe() {
 async function pageInit() {
   if (key == null) return;
 
-  const shoeRef = dataRef(db, `assignment1/${key}`);
+  const shoeRef = dataRef(db, `products/${key}`);
   const shoeSnapShot = await get(shoeRef);
   const data = shoeSnapShot.val();
 
