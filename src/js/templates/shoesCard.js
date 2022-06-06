@@ -67,7 +67,7 @@ async function onRemoveShoe(e) {
   );
 
   if (userResponse) {
-    const shoeRef = await dataRef(db, `assignment1/${key}`);
+    const shoeRef = await dataRef(db, `products/${key}`);
     const shoeSnapShot = await get(shoeRef);
     const data = shoeSnapShot.val();
 
