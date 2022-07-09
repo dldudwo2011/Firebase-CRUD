@@ -145,5 +145,6 @@ async function uploadNewShoe() {
     });
 
     alert("Successfully added.");
+    window.location.href = "https://firebase-crud-youngjaelee.netlify.app";
   }
 }

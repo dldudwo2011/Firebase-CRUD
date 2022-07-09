@@ -155,6 +155,7 @@ async function updateNewShoe() {
   }
 
   alert("Update success.");
+  window.location.href = "https://firebase-crud-youngjaelee.netlify.app";
 }
 
 async function pageInit() {
