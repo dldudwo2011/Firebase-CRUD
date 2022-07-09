@@ -3,7 +3,7 @@ import {
   uploadBytes,
   getDownloadURL,
 } from "firebase/storage";
-import { ref as dataRef, push, set, get, update } from "firebase/database";
+import { ref as dataRef, get, update } from "firebase/database";
 import { db, storage } from "./libs/firebase/firebaseConfig";
 
 const display = document.querySelector(".display img");
@@ -15,9 +15,37 @@ const numberOfColoursInput = document.querySelector("#colour-count");
 const statusInput = document.getElementById("just-in");
 const key = sessionStorage.getItem("key");
 
+const errorContainer = document.querySelector(".error-title");
+const errorContainer2 = document.querySelector(".error-image");
+const errorContainer3 = document.querySelector(".error-type");
+const errorContainer4 = document.querySelector(".error-colour");
+const errorContainer5 = document.querySelector(".error-price");
+
+errorContainer.classList.add("d-none");
+errorContainer2.classList.add("d-none");
+errorContainer3.classList.add("d-none");
+errorContainer4.classList.add("d-none");
+errorContainer5.classList.add("d-none");
+
 imageInput.addEventListener("change", onImageSelected);
 document.forms["shoesForm"].addEventListener("submit", onUpdateShoe);
 document.querySelector("#cancel").addEventListener("click", onCancel);
+
+function onKeydown(e) {
+  const errorContainer = e.currentTarget.parentNode.firstElementChild;
+  if (!errorContainer.classList.contains("d-none")) {
+    errorContainer.classList.add("d-none");
+  }
+  e.currentTarget.removeEventListener("keydown", onKeydown);
+}
+
+function onChange(e) {
+  const errorContainer = e.currentTarget.parentNode.firstElementChild;
+  if (!errorContainer.classList.contains("d-none")) {
+    errorContainer.classList.add("d-none");
+  }
+  e.currentTarget.removeEventListener("change", onChange);
+}
 
 function onCancel(e) {
   e.preventDefault();
@@ -50,6 +78,35 @@ async function updateNewShoe() {
   let status = "";
 
   if (statusInput.checked) status = statusInput.value;
+
+  if (!title || !type || !numberOfColours || !price) {
+    if (!title) {
+      errorContainer.textContent = "Title is required";
+      errorContainer.classList.remove("d-none");
+      titleInput.addEventListener("keydown", onKeydown);
+    }
+    if (!type) {
+      errorContainer3.textContent = "Type is required";
+      errorContainer3.classList.remove("d-none");
+      typeInput.addEventListener("keydown", onKeydown);
+    }
+
+    if (!numberOfColours) {
+      errorContainer4.textContent = "Number of colours is required";
+      errorContainer4.classList.remove("d-none");
+      numberOfColoursInput.addEventListener("keydown", onKeydown);
+    }
+
+    if (!price) {
+      errorContainer5.textContent = "Price is required";
+      errorContainer5.classList.remove("d-none");
+      priceInput.addEventListener("keydown", onKeydown);
+    }
+
+    alert("You must fill in every text fields!");
+
+    return;
+  }
 
   const obj = {
     title,
