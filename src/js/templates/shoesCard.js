@@ -1,11 +1,8 @@
 import {
   ref as storageRef,
-  uploadBytes,
-  getDownloadURL,
   deleteObject,
-  ref,
 } from "firebase/storage";
-import { ref as dataRef, push, set, get, remove } from "firebase/database";
+import { ref as dataRef,get, remove } from "firebase/database";
 import { db, storage } from "../libs/firebase/firebaseConfig";
 
 const fs = require("fs");
