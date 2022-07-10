@@ -152,10 +152,7 @@ async function updateNewShoe() {
         console.log(error);
       });
 
-    if (storageHasImageAlready) {
-      console.log("has returned");
-      return;
-    }
+    if (storageHasImageAlready) return;
 
     // if the file does not exist, create a new spot in the storage
     const newStorageReference = await storageRef(
