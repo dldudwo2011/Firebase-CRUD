@@ -1,14 +1,11 @@
-import {
-  ref as storageRef,
-  deleteObject,
-} from "firebase/storage";
-import { ref as dataRef,get, remove } from "firebase/database";
+import { ref as storageRef, deleteObject } from "firebase/storage";
+import { ref as dataRef, get, remove } from "firebase/database";
 import { db, storage } from "../libs/firebase/firebaseConfig";
 
 const fs = require("fs");
 
 function shoesCard({
-  key,
+  uid,
   numberOfColours,
   title,
   price,
@@ -31,8 +28,8 @@ function shoesCard({
             <li class="list-group-item">$${price}</li>
         </ul>
         <div class="card-body d-flex justify-content-evenly buttons">
-            <button class="btn btn-primary" id="edit" data-key="${key}" >edit</button>
-            <button class="btn btn btn-danger" id="delete" data-key="${key}" >delete</button>
+            <button class="btn btn-primary" id="edit" data-key="${uid}" >edit</button>
+            <button class="btn btn btn-danger" id="delete" data-key="${uid}" >delete</button>
         </div>
         </div>
   `;

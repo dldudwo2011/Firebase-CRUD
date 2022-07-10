@@ -6,7 +6,6 @@ import {
 } from "firebase/storage";
 import { ref as databaseRef, push, set } from "firebase/database";
 import { db, storage } from "./libs/firebase/firebaseConfig";
-import { v4 as uuidv4 } from "uuid";
 
 const titleInput = document.querySelector("#title");
 const fileInput = document.querySelector("#shoeImage");
@@ -158,8 +157,7 @@ async function uploadNewShoe() {
     const itemRef = await push(dataRef);
 
     set(itemRef, {
-      key: itemRef.key,
-      uid: uuidv4(),
+      uid: itemRef.key,
       urlPath,
       storagePath,
       title,
