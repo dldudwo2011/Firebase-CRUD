@@ -22,7 +22,8 @@
   "dependencies": {
     "firebase": "^9.6.3",
     "nanoid": "^3.2.0",
-    "parcel": "^2.2.1"
+    "parcel": "^2.2.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.2.1",

@@ -2,10 +2,11 @@ import {
   ref as storageRef,
   uploadBytes,
   getDownloadURL,
-  listAll
+  listAll,
 } from "firebase/storage";
-import { ref as databaseRef, push, set} from "firebase/database";
+import { ref as databaseRef, push, set } from "firebase/database";
 import { db, storage } from "./libs/firebase/firebaseConfig";
+import { v4 as uuidv4 } from "uuid";
 
 const titleInput = document.querySelector("#title");
 const fileInput = document.querySelector("#shoeImage");
@@ -118,7 +119,6 @@ async function uploadNewShoe() {
   }
 
   if (title && file && type && numberOfColours && price) {
-
     //if the image with same name already exists
     const storageReference = await storageRef(storage, "images/products/");
 
@@ -159,7 +159,7 @@ async function uploadNewShoe() {
 
     set(itemRef, {
       key: itemRef.key,
-      sku: `soccer-${itemRef.key}`,
+      uid: uuidv4(),
       urlPath,
       storagePath,
       title,
