@@ -2,6 +2,7 @@ import {
   ref as storageRef,
   uploadBytes,
   getDownloadURL,
+  listAll
 } from "firebase/storage";
 import { ref as dataRef, get, update } from "firebase/database";
 import { db, storage } from "./libs/firebase/firebaseConfig";
@@ -132,11 +133,35 @@ async function updateNewShoe() {
 
   // if it has file to update
   if (file != null) {
-    const imageRef = await storageRef(storage, `images/products/${file.name}`);
+    const storageReference = await storageRef(storage, "images/products/");
+
+    const storageHasImageAlready = await listAll(storageReference)
+      .then((res) => {
+        res.items.forEach((itemRef) => {
+          if (file.name === itemRef.name) {
+            alert(
+              "File with the same name already exists in the storage. Please change the file name."
+            );
+            return;
+          }
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    console.log(storageHasImageAlready);
+
+    if (storageHasImageAlready) {
+      console.log("has returned");
+      return;
+    }
+
+    // if it doesn't exist
     // uploading file to the storage bucket
-    const uploadResult = await uploadBytes(imageRef, file);
+    const uploadResult = await uploadBytes(storageReference, file);
     // url to the image stored in storage bucket
-    const urlPath = await getDownloadURL(imageRef);
+    const urlPath = await getDownloadURL(storageReference);
     // path on the storage bucket to the image
     const storagePath = uploadResult.metadata.fullPath;
 
