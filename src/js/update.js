@@ -157,11 +157,15 @@ async function updateNewShoe() {
       return;
     }
 
-    // if it doesn't exist
+    // if the file does not exist, create a new spot in the storage
+    const newStorageReference = await storageRef(
+      storage,
+      `images/products/${file.name}`
+    );
     // uploading file to the storage bucket
-    const uploadResult = await uploadBytes(storageReference, file);
+    const uploadResult = await uploadBytes(newStorageReference, file);
     // url to the image stored in storage bucket
-    const urlPath = await getDownloadURL(storageReference);
+    const urlPath = await getDownloadURL(newStorageReference);
     // path on the storage bucket to the image
     const storagePath = uploadResult.metadata.fullPath;
 
