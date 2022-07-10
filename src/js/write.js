@@ -2,6 +2,7 @@ import {
   ref as storageRef,
   uploadBytes,
   getDownloadURL,
+  listAll
 } from "firebase/storage";
 import { ref as databaseRef, push, set} from "firebase/database";
 import { db, storage } from "./libs/firebase/firebaseConfig";
@@ -117,14 +118,39 @@ async function uploadNewShoe() {
   }
 
   if (title && file && type && numberOfColours && price) {
-    // paths to the data to write
-    const imageRef = await storageRef(storage, `images/products/${file.name}`);
-    const dataRef = await databaseRef(db, "products");
 
+    //if the image with same name already exists
+    const storageReference = await storageRef(storage, "images/products/");
+
+    let storageHasImageAlready = false;
+
+    await listAll(storageReference)
+      .then((res) => {
+        res.items.forEach((itemRef) => {
+          if (file.name === itemRef.name) {
+            alert(
+              "File with the same name already exists in the storage. Please change the file name."
+            );
+            storageHasImageAlready = true;
+          }
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    if (storageHasImageAlready) return;
+
+    // if the file does not exist, create a new spot in the storage
+    const newStorageReference = await storageRef(
+      storage,
+      `images/products/${file.name}`
+    );
+    const dataRef = await databaseRef(db, "products");
     // uploading file to the storage bucket
-    const uploadResult = await uploadBytes(imageRef, file);
+    const uploadResult = await uploadBytes(newStorageReference, file);
     // url to the image stored in storage bucket
-    const urlPath = await getDownloadURL(imageRef);
+    const urlPath = await getDownloadURL(newStorageReference);
     // path on the storage bucket to the image
     const storagePath = uploadResult.metadata.fullPath;
 
