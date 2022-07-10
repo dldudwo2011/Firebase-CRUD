@@ -137,7 +137,7 @@ async function updateNewShoe() {
 
     let storageHasImageAlready = false;
 
-    listAll(storageReference)
+    await listAll(storageReference)
       .then((res) => {
         res.items.forEach((itemRef) => {
           if (file.name === itemRef.name) {
