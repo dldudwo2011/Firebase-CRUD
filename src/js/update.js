@@ -135,7 +135,7 @@ async function updateNewShoe() {
   if (file != null) {
     const storageReference = await storageRef(storage, "images/products/");
 
-    const storageHasImageAlready = false;
+    let storageHasImageAlready = false;
 
     listAll(storageReference)
       .then((res) => {
