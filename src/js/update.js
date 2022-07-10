@@ -2,7 +2,7 @@ import {
   ref as storageRef,
   uploadBytes,
   getDownloadURL,
-  listAll
+  listAll,
 } from "firebase/storage";
 import { ref as dataRef, get, update } from "firebase/database";
 import { db, storage } from "./libs/firebase/firebaseConfig";
@@ -135,22 +135,22 @@ async function updateNewShoe() {
   if (file != null) {
     const storageReference = await storageRef(storage, "images/products/");
 
-    const storageHasImageAlready = await listAll(storageReference)
+    const storageHasImageAlready = false;
+
+    listAll(storageReference)
       .then((res) => {
         res.items.forEach((itemRef) => {
           if (file.name === itemRef.name) {
             alert(
               "File with the same name already exists in the storage. Please change the file name."
             );
-            return true;
+            storageHasImageAlready = true;
           }
         });
       })
       .catch((error) => {
         console.log(error);
       });
-
-    console.log(storageHasImageAlready);
 
     if (storageHasImageAlready) {
       console.log("has returned");
