@@ -142,7 +142,7 @@ async function updateNewShoe() {
             alert(
               "File with the same name already exists in the storage. Please change the file name."
             );
-            return;
+            return true;
           }
         });
       })
