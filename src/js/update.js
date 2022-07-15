@@ -1,5 +1,6 @@
 import {
   ref as storageRef,
+  deleteObject,
   uploadBytes,
   getDownloadURL,
   listAll,
@@ -129,7 +130,7 @@ async function updateNewShoe() {
 
   // convertedObj.status = status;
 
-  const shoeRef = dataRef(db, `products/${key}`);
+  const shoeRef = await dataRef(db, `products/${key}`);
 
   // if it has file to update
   if (file != null) {
@@ -154,7 +155,15 @@ async function updateNewShoe() {
 
     if (storageHasImageAlready) return;
 
-    // if the file does not exist, create a new spot in the storage
+    //deleting old image
+    const shoeSnapShot = await get(shoeRef);
+    const data = shoeSnapShot.val();
+    if (data.storagePath) {
+      const stRef = storageRef(storage, data.storagePath);
+      await deleteObject(stRef);
+    }
+
+    //create a new spot in the storage
     const newStorageReference = await storageRef(
       storage,
       `images/products/${file.name}`
