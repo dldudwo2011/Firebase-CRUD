@@ -24,7 +24,11 @@ function shoesCard({
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">${type}</li>
-            <li class="list-group-item">${numberOfColours} Colour</li>
+            <li class="list-group-item">${
+              numberOfColours > 1
+                ? `${numberOfColours} Colours`
+                : `${numberOfColours} Colour`
+            }</li>
             <li class="list-group-item">$${price}</li>
         </ul>
         <div class="card-body d-flex justify-content-evenly buttons">
